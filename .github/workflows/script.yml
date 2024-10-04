@@ -1,0 +1,30 @@
+name: Run script
+
+on:
+    push:
+        branches:
+            - main
+            - add-github-action
+    workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create .env file
+        run: echo "API_TOKEN=${{ secrets.API_TOKEN }}" > .env
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run script
+        run: npm run start
