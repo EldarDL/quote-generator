@@ -1,0 +1,11 @@
+{
+  "name": "quote-generator",
+  "version": "1.0.0",
+  "description": "A simple quote generator",
+  "main": "main.js",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
